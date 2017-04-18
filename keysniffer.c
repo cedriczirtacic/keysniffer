@@ -200,6 +200,7 @@ int keysniffer_cb(struct notifier_block *nblock,
 static int __init keysniffer_init(void)
 {
 	buf_pos = 0;
+  output_path = NULL, output = NULL;
 
 	if (codes < 0 || codes > 2)
 		return -EINVAL;
