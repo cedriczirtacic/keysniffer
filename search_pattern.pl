@@ -23,7 +23,7 @@ EOH
 help($0) if($#ARGV < 0);
 my @pattern = split //, $ARGV[0];
 my $pattern_l = length($ARGV[0]);
-my $curr_line = 0;
+my ($curr_line, $ocurr) = 0;
 
 open(FD, "<$keys_f");
 while(<FD>){
@@ -48,12 +48,14 @@ while(<FD>){
             last if($pattern[$l] ne $_ || $l >= $pattern_l);
             if($pattern[$pattern_l-1] eq $_ && $l == ($pattern_l-1) ){
                 print "Pattern found on line $found_line\n";
+                $ocurr++;
                 last
             }
         }
     }
 }
 
+print "Lines: $curr_line; Found: $ocurr\n";
 close(FD);
 
 exit 0;
