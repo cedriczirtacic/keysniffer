@@ -5,7 +5,6 @@
 use strict;
 use warnings;
 use Fcntl qw(SEEK_SET SEEK_CUR);
-use Data::Dumper;
 
 my $keys_f;
 BEGIN{
